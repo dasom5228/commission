@@ -1,230 +1,81 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>리제님 썸네일러 지원</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh; /* 전체 화면 높이 */
-            display: flex;
-            flex-direction: column; /* 수직 정렬 */
-            align-items: center; /* 중앙 정렬 */
-            justify-content: flex-start; /* 상단 정렬 */
-        }
-        #main3 {
-            width: 85%; /* 너비를 상대적으로 조정 */
-            max-width: 1300px; /* 최대 너비 설정 */
-            text-align: center; /* 텍스트 중앙 정렬 */
-            background-color: rgb(34, 29, 29); /* 배경 색상 */
-            padding: 10px 0px; /* 여백 추가 */
-            margin-top: 15px; /* 상단 여백 추가 */
-        }
-        #main2 {
-            width: 85%; /* 너비를 상대적으로 조정 */
-            max-width: 1300px; /* 최대 너비 설정 */
-            text-align: center; /* 텍스트 중앙 정렬 */
-            background-color: antiquewhite;
-        }
-        #main1{
-            width: 85%; /* 너비를 상대적으로 조정 */
-            max-width: 1300px; /* 최대 너비 설정 */
-            text-align: center; /* 텍스트 중앙 정렬 */
-            background-color: antiquewhite;
-            color: rgb(36, 2, 22);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        }
-        #main4{
-            width: 85%; /* 너비를 상대적으로 조정 */
-            max-width: 1300px; /* 최대 너비 설정 */
-            text-align: center; /* 텍스트 중앙 정렬 */
-            background-color: antiquewhite;
-            color: rgb(36, 2, 22);
-        }
-        .aa1 {
-            margin: 0; /* 기본 마진 제거 */
-            color: rgb(223, 209, 192);
-        }
-        p {
-            margin: 0; /* 기본 마진 제거 */
-        }
-        .image-container {
-            position: relative;
-            display: inline-block;
-            margin: 10px;
-        }
-        .image-container img {
-            cursor: pointer; /* 클릭 시 커서 모양 변경 */
-            max-width: 100%; /* 부모 요소의 너비에 맞게 조정 */
-        }
-        .image-title {
-            position: absolute;
-            top: 5px; /* 하단 여백 */
-            left: 50%;
-            transform: translateX(-50%); /* 중앙 정렬 */
-            color: #fff; /* 제목 색상 */
-            background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
-            padding: 5px; /* 여백 추가 */
-            border-radius: 5px; /* 모서리 둥글게 */
-        }
-        .modal {
-            display: none; /* 기본적으로 숨김 */
-            position: fixed; /* 화면 전체에 고정 */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* 반투명 검정 배경 */
-            justify-content: center; /* 중앙 정렬 */
-            align-items: center; /* 중앙 정렬 */
-            z-index: 1000; /* 다른 요소 위에 표시 */
-        }
-        .modal img {
-            max-width: 100%; /* 모달 창 내에서 이미지 최대 너비 */
-            max-height: 95%; /* 모달 창 내에서 이미지 최대 높이 */
-        }
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        p{
-            font-size: 20px;
-        }
-        .image-description {
-            margin-top: 5px; /* 이미지와 설명 사이 여백 */
-            color: #3f2020; /* 설명 텍스트 색상 */
-            font-size: 14px; /* 설명 텍스트 크기 */
-        }
-    </style>
+  <title>커미션 안내</title>
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #666666;
+      color: #333333;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    #page {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    #notice-section {
+      width: 100%;
+    }
+
+    #notice-title {
+      display: inline-block;
+
+      margin: 0 0 10px 0;
+
+      font-size: 24px;
+      font-weight: 900;
+
+      color: #000000;
+
+      cursor: default;
+
+      transition: transform 0.2s ease;
+    }
+    #notice-title:hover {
+      transform: scale(1.05);
+    }
+    #notice-box {
+      width: 100%;
+      box-sizing: border-box;
+
+      background-color: #eeeeee;
+
+      padding: 15px 18px;
+
+      font-size: 15px;
+      color: #333333;
+
+      line-height: 1.6;
+
+      overflow-wrap: break-word;
+    }
+  </style>
 </head>
+
 <body>
-    <div id="main3">
-        <h1 class="aa1">리제님 썸네일러 지원 샘플</h1>
-    </div>
-    <div id="main1">
-        <br><br>
-        <p><strong>안녕하세요! 이번에 리제님 썸네일러 모집글을 보고 지원하게 된 한다솜입니다!</strong></p>
-        <p><strong>썸네일 샘플 작업물들에 대해 간략한 설명과 함께 포트폴리오 자료를 준비해 보았습니다!</strong></p>
-        <br>
-    </div>
-    <div id="main4">
-        <p><strong>썸네일은 총 12장이며 1~8번까지는 카토찡이라는 다른 유튜버분의 실제 썸네일 작업물입니다!</strong></p>
-        <p><strong>밑의 9번부터 12번은 개인적으로 제작한 샘플이며 조금 예전 작업물입니다.</strong></p>
-        <p><strong>마지막으로 따로 그림체 확인용으로 일러스트 4장 정도 같이 첨부해두었습니다!</strong></p>
-        <br>
-    </div>
 
+  <main id="page">
 
-    <div id="main2">
-        <div class="image-container">
-            <img src="img/1.png" id="img1" width="500px">
-            <div class="image-title">썸네일 샘플 1</div>
-        </div>
-        <div class="image-container">
-            <img src="img/2.png" id="img2" width="500px">
-            <div class="image-title">썸네일 샘플 2</div>
-        </div>
-        <br>
-        <div class="image-container">
-            <img src="img/3.png" id="img1" width="500px">
-            <div class="image-title">썸네일 샘플 3</div>
-        </div>
-        <div class="image-container">
-            <img src="img/4.png" id="img2" width="500px">
-            <div class="image-title">썸네일 샘플 4</div>
-        </div>
-        <br>
-        <div class="image-container">
-            <img src="img/5.png" id="img1" width="500px">
-            <div class="image-title">썸네일 샘플 5</div>
-        </div>
-        <div class="image-container">
-            <img src="img/6.png" id="img2" width="500px">
-            <div class="image-title">썸네일 샘플 6</div>
-        </div>
-        <br>
-        <div class="image-container">
-            <img src="img/7.png" id="img1" width="500px">
-            <div class="image-title">썸네일 샘플 7</div>
-        </div>
-        <div class="image-container">
-            <img src="img/8.png" id="img2" width="500px">
-            <div class="image-title">썸네일 샘플 8</div>
-        </div>
-        <br>
-        <div class="image-container">
-            <img src="img/9.png" id="img1" width="500px">
-            <div class="image-title">썸네일 샘플 9</div>
-        </div>
-        <div class="image-container">
-            <img src="img/10.png" id="img2" width="500px">
-            <div class="image-title">썸네일 샘플 10</div>
-        </div>
-        <br>
-        <div class="image-container">
-            <img src="img/11.png" id="img1" width="500px">
-            <div class="image-title">썸네일 샘플 11</div>
-        </div>
-        <div class="image-container">
-            <img src="img/12.png" id="img2" width="500px">
-            <div class="image-title">썸네일 샘플 12</div>
-        </div>
-        <br>
-        <div class="image-container">
-            <img src="img/aa1.png" id="img1" width="500px">
-            <div class="image-title">일러스트 샘플 1</div>
-        </div>
-        <div class="image-container">
-            <img src="img/aa2.png" id="img2" width="500px">
-            <div class="image-title">일러스트 샘플 2</div>
-        </div>
-        <br>
-        <div class="image-container">
-            <img src="img/aa3.png" id="img1" width="500px">
-            <div class="image-title">일러스트 샘플 3</div>
-        </div>
-        <div class="image-container">
-            <img src="img/aa4.png" id="img2" width="500px">
-            <div class="image-title">일러스트 샘플 4</div>
-        </div>
-        <br>
+    <section id="notice-section">
 
-    </div>
-    <div id="modal" class="modal">
-        <span id="close" class="modal-close">&times;</span>
-        <img id="modal-img" src="" alt="Enlarged Image">
-    </div>
-    <script>
-        // 모달 관련 변수
-        const modal = document.getElementById('modal');
-        const modalImg = document.getElementById('modal-img');
-        const close = document.getElementById('close');
+      <h2 id="notice-title">공지사항</h2>
 
-        // 모든 이미지 요소를 가져와 클릭 이벤트 추가
-        document.querySelectorAll('#main2 img').forEach(img => {
-            img.onclick = function() {
-                modal.style.display = 'flex';
-                modalImg.src = this.src;
-            };
-        });
+      <div id="notice-box">
+        여기에 공지사항 내용을 입력해주세요.<br>
+        글이 길어지면 회백색 박스도 그만큼 아래로 늘어납니다.
+      </div>
 
-        // 모달 닫기 버튼 클릭 시 모달 닫기
-        close.onclick = function() {
-            modal.style.display = 'none';
-        };
+    </section>
 
-        // 모달 바깥 클릭 시 모달 닫기
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        };
-    </script>
+  </main>
+
 </body>
 </html>
+
