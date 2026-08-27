@@ -124,13 +124,42 @@
       margin-bottom: 0;
     }
     #QnA {
-      margin: 20px 20% 50px 20%;
+      margin: 20px 18% 50px 18%;
       text-align: center;
       background-color: #FFFFFF;
-      border: 2px solid #C93463;
+      border: 1.8px solid #C93463;
       border-radius: 8px;
       color: #C93463;
       font-size: 17px;
+    }
+    #image-section {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .image-box {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .image-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .image-hover {
+      display: none !important;
+    }
+
+    .image-box:hover .image-normal {
+      display: none !important;
+    }
+
+    .image-box:hover .image-hover {
+      display: block !important;
     }
   </style>
 </head>
@@ -173,6 +202,27 @@
     <div id="QnA">
 		<h1>그 외에 궁금하신 점은 문의해주세요!</h1>
 	</div>
+     <div id="image-section">
+
+      <!-- 이미지 1 -->
+      <div class="image-box">
+        <img class="image-normal" src="img1.png" alt="이미지 1">
+        <img class="image-hover" src="img1-2.png" alt="이미지 1">
+      </div>
+
+      <!-- 이미지 2 -->
+      <div class="image-box">
+        <img class="image-normal" src="img2.png" alt="이미지 2">
+        <img class="image-hover" src="img2-2.png" alt="이미지 2">
+      </div>
+
+      <!-- 이미지 3 -->
+      <div class="image-box">
+        <img class="image-normal" src="img3.png" alt="이미지 3">
+        <img class="image-hover" src="img3-2.png" alt="이미지 3">
+      </div>
+
+    </div>
   </main>
 
 </body>
