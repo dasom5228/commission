@@ -163,56 +163,172 @@
       display: block !important;
     }
 
+
+
     #youtube-section {
-      position: relative;
-      width: 100%;
-      margin-top: 20px;
+      margin-top: 30px;
+      padding: 30px;
+
       background-color: #FFFFFF;
       border: 3px solid #C93463;
       border-radius: 20px;
+
       box-shadow:
         0 0 0 1px rgba(255, 225, 234, 0.95),
         0 0 3px 2px rgba(255, 225, 234, 0.85),
         0 0 6px 4px rgba(255, 225, 234, 0.55),
         0 0 9px 5px rgba(255, 225, 234, 0.25);
 
-      padding: 30px;
+      text-align: center;
     }
 
-    #youtube-list {
-      display: flex;
-      gap: 20px;
+    #youtube-title {
+      margin: 0 0 5px 0;
+
+      font-size: 40px;
+      font-weight: 900;
+
+      color: #C93463;
+    }
+
+    #youtube-description {
+      margin: 0 0 20px 0;
+
+      font-size: 18px;
+      color: #C93463;
+    }
+
+
+    /* =========================
+       각각의 유튜브 슬라이더
+       ========================= */
+
+    .youtube-slider {
       width: 100%;
+
+      display: flex;
+      align-items: stretch;
+
+      margin-bottom: 30px;
+    }
+
+    /* 마지막 슬라이더 아래 여백 제거 */
+    .youtube-slider:last-child {
+      margin-bottom: 0;
+    }
+
+
+    /* =========================
+       좌우 버튼
+       ========================= */
+
+    .youtube-arrow {
+      flex: 0 0 40px;
+
+      width: 40px;
+      min-width: 40px;
+
+      border: none;
+      background-color: #FFFFFF;
+
+      cursor: pointer;
+
+      position: relative;
+    }
+
+    /* 왼쪽 화살표 */
+    .youtube-prev::after {
+      content: "";
+
+      position: absolute;
+
+      width: 12px;
+      height: 12px;
+
+      border-left: 3px solid #C93463;
+      border-bottom: 3px solid #C93463;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-30%, -50%)
+        rotate(45deg);
+    }
+
+    /* 오른쪽 화살표 */
+    .youtube-next::after {
+      content: "";
+
+      position: absolute;
+
+      width: 12px;
+      height: 12px;
+
+      border-right: 3px solid #C93463;
+      border-top: 3px solid #C93463;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-70%, -50%)
+        rotate(45deg);
+    }
+
+
+    /* =========================
+       썸네일 영역
+       ========================= */
+
+    .youtube-window {
+      flex: 1;
+
+      min-width: 0;
+
+      overflow: hidden;
+    }
+
+    .youtube-list {
+      display: flex;
+      width: max-content;
+      transition: transform 0.4s ease;
     }
 
     .youtube-box {
-      flex: 1;
-      min-width: 0;
+      flex: 0 0 50%;
+
+      width: 50%;
+
+      padding: 0 5px;
     }
 
     .youtube-box a {
       display: block;
+
       width: 100%;
-      text-decoration: none;
     }
 
     .youtube-box img {
       display: block;
+
       width: 100%;
       aspect-ratio: 16 / 9;
+
       object-fit: cover;
+
       border-radius: 10px;
-      transition: transform 0.2s ease;
     }
 
-    .youtube-box img:hover {
-      transform: scale(1.03);
+    /* 버튼 비활성화 */
+    .youtube-arrow:disabled {
+      opacity: 0.25;
+      cursor: default;
     }
   </style>
 </head>
 
 <body>
-
   <main id="main-all">
     <h2 id="notice-title">&nbsp;I&nbsp;안내사항</h2>
     <div id="notice">
@@ -248,41 +364,353 @@
 	</div>
      <div id="image-section">
       <div class="image-box">
-        <img class="image-normal" src="img1.png" alt="이미지 1">
-        <img class="image-hover" src="img1-2.png" alt="이미지 1">
+        <img class="image-normal" src="img1.png">
+        <img class="image-hover" src="img1-2.png">
       </div>
       <div class="image-box">
-        <img class="image-normal" src="img2.png" alt="이미지 2">
-        <img class="image-hover" src="img2-2.png" alt="이미지 2">
+        <img class="image-normal" src="img2.png">
+        <img class="image-hover" src="img2-2.png">
       </div>
       <div class="image-box">
-        <img class="image-normal" src="img3.png" alt="이미지 3">
-        <img class="image-hover" src="img3-2.png" alt="이미지 3">
+        <img class="image-normal" src="img3.png">
+        <img class="image-hover" src="img3-2.png">
       </div>
     </div>
   </main>
-  <div id="youtube-section">
-    <div id="youtube-list">
-      <div class="youtube-box">
-        <a href="https://youtu.be/MHjw7dER0wk" target="_blank">
-          <img src="https://img.youtube.com/vi/MHjw7dER0wk/maxresdefault.jpg" alt="유튜브 영상 1">
-        </a>
+
+  <section id="youtube-section">
+
+    <h1 id="youtube-title">유튜브 썸네일</h1>
+
+    <p id="youtube-description">
+      썸네일은 선화 컨펌작업이 없습니다.
+    </p>
+
+
+    <!-- =========================
+         유튜브 슬라이더 1
+         ========================= -->
+
+    <div class="youtube-slider">
+
+      <button
+        class="youtube-arrow youtube-prev"
+        type="button">
+      </button>
+
+      <div class="youtube-window">
+
+        <div class="youtube-list">
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID1" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID1/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID2" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID2/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID3" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID3/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID4" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID4/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID5" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID5/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID6" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID6/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID7" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID7/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID8" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID8/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID9" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID9/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID10" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID10/maxresdefault.jpg">
+            </a>
+          </div>
+
+        </div>
       </div>
 
-      <div class="youtube-box">
-        <a href="https://www.youtube.com/watch?v=영상ID2" target="_blank">
-          <img src="https://img.youtube.com/vi/영상ID2/maxresdefault.jpg" alt="유튜브 영상 2">
-        </a>
-      </div>
-
-      <div class="youtube-box">
-        <a href="https://www.youtube.com/watch?v=영상ID3" target="_blank">
-          <img src="https://img.youtube.com/vi/영상ID3/maxresdefault.jpg" alt="유튜브 영상 3">
-        </a>
-      </div>
+      <button
+        class="youtube-arrow youtube-next"
+        type="button">
+      </button>
 
     </div>
 
-  </div>
+
+    <!-- =========================
+         유튜브 슬라이더 2
+         ========================= -->
+
+    <div class="youtube-slider">
+
+      <button
+        class="youtube-arrow youtube-prev"
+        type="button">
+      </button>
+
+      <div class="youtube-window">
+
+        <div class="youtube-list">
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID11" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID11/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID12" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID12/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID13" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID13/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID14" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID14/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID15" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID15/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID16" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID16/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID17" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID17/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID18" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID18/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID19" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID19/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID20" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID20/maxresdefault.jpg">
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <button
+        class="youtube-arrow youtube-next"
+        type="button">
+      </button>
+
+    </div>
+
+
+    <!-- =========================
+         유튜브 슬라이더 3
+         ========================= -->
+
+    <div class="youtube-slider">
+
+      <button
+        class="youtube-arrow youtube-prev"
+        type="button">
+      </button>
+
+      <div class="youtube-window">
+
+        <div class="youtube-list">
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID21" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID21/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID22" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID22/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID23" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID23/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID24" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID24/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID25" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID25/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID26" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID26/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID27" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID27/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID28" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID28/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID29" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID29/maxresdefault.jpg">
+            </a>
+          </div>
+
+          <div class="youtube-box">
+            <a href="https://www.youtube.com/watch?v=영상ID30" target="_blank">
+              <img src="https://img.youtube.com/vi/영상ID30/maxresdefault.jpg">
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <button
+        class="youtube-arrow youtube-next"
+        type="button">
+      </button>
+
+    </div>
+
+  </section>
+<script>
+  document.querySelectorAll(".youtube-slider").forEach(function(slider) {
+
+    const list = slider.querySelector(".youtube-list");
+    const boxes = slider.querySelectorAll(".youtube-box");
+
+    const prev =
+      slider.querySelector(".youtube-prev");
+
+    const next =
+      slider.querySelector(".youtube-next");
+
+    let currentPage = 0;
+
+    // 한 화면에 2개
+    const itemsPerPage = 2;
+
+    // 최대 10개 기준
+    const totalPages =
+      Math.ceil(boxes.length / itemsPerPage);
+
+
+    function updateSlider() {
+
+      /*
+        한 화면에 2개이므로
+        한 페이지 이동 = 100%
+      */
+      const move =
+        currentPage * 100;
+
+      list.style.transform =
+        "translateX(-" + move + "%)";
+
+
+      prev.disabled =
+        currentPage === 0;
+
+      next.disabled =
+        currentPage >= totalPages - 1;
+    }
+
+
+    next.addEventListener("click", function() {
+
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        updateSlider();
+      }
+
+    });
+
+
+    prev.addEventListener("click", function() {
+
+      if (currentPage > 0) {
+        currentPage--;
+        updateSlider();
+      }
+
+    });
+
+
+    updateSlider();
+
+  });
+</script>
 </body>
 </html>
