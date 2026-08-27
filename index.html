@@ -162,17 +162,60 @@
     .image-box:hover .image-hover {
       display: block !important;
     }
+
+    #youtube-section {
+      position: relative;
+      width: 100%;
+      margin-top: 20px;
+      background-color: #FFFFFF;
+      border: 3px solid #C93463;
+      border-radius: 20px;
+      box-shadow:
+        0 0 0 1px rgba(255, 225, 234, 0.95),
+        0 0 3px 2px rgba(255, 225, 234, 0.85),
+        0 0 6px 4px rgba(255, 225, 234, 0.55),
+        0 0 9px 5px rgba(255, 225, 234, 0.25);
+
+      padding: 30px;
+    }
+
+    #youtube-list {
+      display: flex;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .youtube-box {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .youtube-box a {
+      display: block;
+      width: 100%;
+      text-decoration: none;
+    }
+
+    .youtube-box img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .youtube-box img:hover {
+      transform: scale(1.03);
+    }
   </style>
 </head>
 
 <body>
 
   <main id="main-all">
-
     <h2 id="notice-title">&nbsp;I&nbsp;안내사항</h2>
-
     <div id="notice">
-
       <p id="notice-intro">
         안내사항을 읽지 않아 생기는 모든 문제는 신청자 본인의 책임이며<br/>
         작가측에서 일절 책임지지 않습니다! 안내사항 꼭 읽어주세요!
@@ -216,9 +259,30 @@
         <img class="image-normal" src="img3.png" alt="이미지 3">
         <img class="image-hover" src="img3-2.png" alt="이미지 3">
       </div>
-
     </div>
   </main>
+  <div id="youtube-section">
+    <div id="youtube-list">
+      <div class="youtube-box">
+        <a href="https://youtu.be/MHjw7dER0wk" target="_blank">
+          <img src="https://img.youtube.com/vi/MHjw7dER0wk/maxresdefault.jpg" alt="유튜브 영상 1">
+        </a>
+      </div>
 
+      <div class="youtube-box">
+        <a href="https://www.youtube.com/watch?v=영상ID2" target="_blank">
+          <img src="https://img.youtube.com/vi/영상ID2/maxresdefault.jpg" alt="유튜브 영상 2">
+        </a>
+      </div>
+
+      <div class="youtube-box">
+        <a href="https://www.youtube.com/watch?v=영상ID3" target="_blank">
+          <img src="https://img.youtube.com/vi/영상ID3/maxresdefault.jpg" alt="유튜브 영상 3">
+        </a>
+      </div>
+
+    </div>
+
+  </div>
 </body>
 </html>
