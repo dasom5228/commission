@@ -163,16 +163,12 @@
       display: block !important;
     }
 
-
-
     #youtube-section {
       margin-top: 30px;
       padding: 30px;
-
       background-color: #FFFFFF;
       border: 3px solid #C93463;
       border-radius: 20px;
-
       box-shadow:
         0 0 0 1px rgba(255, 225, 234, 0.95),
         0 0 3px 2px rgba(255, 225, 234, 0.85),
@@ -198,129 +194,89 @@
       color: #C93463;
     }
 
-
-    /* =========================
-       각각의 유튜브 슬라이더
-       ========================= */
-
     .youtube-slider {
       width: 100%;
-
       display: flex;
-      align-items: stretch;
-
-      margin-bottom: 30px;
+      align-items: center;
+      gap: 5px;
     }
 
-    /* 마지막 슬라이더 아래 여백 제거 */
     .youtube-slider:last-child {
       margin-bottom: 0;
     }
-
-
-    /* =========================
-       좌우 버튼
-       ========================= */
-
     .youtube-arrow {
       flex: 0 0 40px;
-
       width: 40px;
-      min-width: 40px;
-
+      height: 100%;
+      min-height: 100px;
       border: none;
       background-color: #FFFFFF;
-
       cursor: pointer;
-
       position: relative;
+      padding: 0;
     }
-
-    /* 왼쪽 화살표 */
     .youtube-prev::after {
       content: "";
-
       position: absolute;
-
       width: 12px;
       height: 12px;
-
       border-left: 3px solid #C93463;
       border-bottom: 3px solid #C93463;
-
       left: 50%;
       top: 50%;
-
       transform:
         translate(-30%, -50%)
         rotate(45deg);
     }
-
-    /* 오른쪽 화살표 */
+	.youtube-arrow::before {
+	  content: "";
+	  position: absolute;
+	  top: -15px;
+	  bottom: -15px;
+	  left: -10px;
+	  right: -10px;
+	  cursor: pointer;
+	}
     .youtube-next::after {
       content: "";
-
       position: absolute;
-
       width: 12px;
       height: 12px;
-
       border-right: 3px solid #C93463;
       border-top: 3px solid #C93463;
-
       left: 50%;
       top: 50%;
-
       transform:
         translate(-70%, -50%)
         rotate(45deg);
     }
-
-
-    /* =========================
-       썸네일 영역
-       ========================= */
-
     .youtube-window {
-      flex: 1;
-
-      min-width: 0;
-
+      width: 100%;
       overflow: hidden;
     }
-
     .youtube-list {
       display: flex;
-      width: max-content;
       transition: transform 0.4s ease;
     }
-
     .youtube-box {
       flex: 0 0 50%;
-
       width: 50%;
-
       padding: 0 5px;
+      margin-bottom: 15px;
     }
-
     .youtube-box a {
       display: block;
 
       width: 100%;
     }
-
     .youtube-box img {
       display: block;
-
       width: 100%;
       aspect-ratio: 16 / 9;
-
       object-fit: cover;
-
       border-radius: 10px;
     }
 
-    /* 버튼 비활성화 */
     .youtube-arrow:disabled {
       opacity: 0.25;
       cursor: default;
@@ -403,62 +359,62 @@
         <div class="youtube-list">
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID1" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID1/maxresdefault.jpg">
+            <a href="https://youtu.be/0jLoq1JWGhI" target="_blank">
+              <img src="https://img.youtube.com/vi/0jLoq1JWGhI/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID2" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID2/maxresdefault.jpg">
+            <a href="https://youtu.be/zuaGCfr1-Y8" target="_blank">
+              <img src="https://img.youtube.com/vi/zuaGCfr1-Y8/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID3" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID3/maxresdefault.jpg">
+            <a href="https://youtu.be/GTaipeJ3Fq4" target="_blank">
+              <img src="https://img.youtube.com/vi/GTaipeJ3Fq4/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID4" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID4/maxresdefault.jpg">
+            <a href="https://youtu.be/J0RF1rU-Rnc" target="_blank">
+              <img src="https://img.youtube.com/vi/J0RF1rU-Rnc/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID5" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID5/maxresdefault.jpg">
+            <a href="https://youtu.be/oyB2bGcHMdc" target="_blank">
+              <img src="https://img.youtube.com/vi/oyB2bGcHMdc/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID6" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID6/maxresdefault.jpg">
+            <a href="https://youtu.be/LnVJSyq1CVQ" target="_blank">
+              <img src="https://img.youtube.com/vi/LnVJSyq1CVQ/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID7" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID7/maxresdefault.jpg">
+            <a href="https://youtu.be/LRHyz42V6Qk" target="_blank">
+              <img src="https://img.youtube.com/vi/LRHyz42V6Qk/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID8" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID8/maxresdefault.jpg">
+            <a href="https://youtu.be/qetFfNzVaDI" target="_blank">
+              <img src="https://img.youtube.com/vi/qetFfNzVaDI/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID9" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID9/maxresdefault.jpg">
+            <a href="https://youtu.be/UQIy7t2Ae9c" target="_blank">
+              <img src="https://img.youtube.com/vi/UQIy7t2Ae9c/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID10" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID10/maxresdefault.jpg">
+            <a href="https://youtu.be/MogWE40ETiE" target="_blank">
+              <img src="https://img.youtube.com/vi/MogWE40ETiE/maxresdefault.jpg">
             </a>
           </div>
 
@@ -489,62 +445,62 @@
         <div class="youtube-list">
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID11" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID11/maxresdefault.jpg">
+            <a href="https://youtu.be/184kLv2wCSE" target="_blank">
+              <img src="https://img.youtube.com/vi/184kLv2wCSE/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID12" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID12/maxresdefault.jpg">
+            <a href="https://youtu.be/7cGYLy_dV8w" target="_blank">
+              <img src="https://img.youtube.com/vi/7cGYLy_dV8w/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID13" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID13/maxresdefault.jpg">
+            <a href="https://youtu.be/CmkxOOsmGhw" target="_blank">
+              <img src="https://img.youtube.com/vi/CmkxOOsmGhw/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID14" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID14/maxresdefault.jpg">
+            <a href="https://youtu.be/urHp583L0Mk" target="_blank">
+              <img src="https://img.youtube.com/vi/urHp583L0Mk/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID15" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID15/maxresdefault.jpg">
+            <a href="https://youtu.be/fbLE2pfBKF4" target="_blank">
+              <img src="https://img.youtube.com/vi/fbLE2pfBKF4/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID16" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID16/maxresdefault.jpg">
+            <a href="https://youtu.be/2ApIkCUfA5c" target="_blank">
+              <img src="https://img.youtube.com/vi/2ApIkCUfA5c/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID17" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID17/maxresdefault.jpg">
+            <a href="https://youtu.be/lagfr4xMyrY" target="_blank">
+              <img src="https://img.youtube.com/vi/lagfr4xMyrY/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID18" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID18/maxresdefault.jpg">
+            <a href="https://youtu.be/Tzh4zhNoU5s" target="_blank">
+              <img src="https://img.youtube.com/vi/Tzh4zhNoU5s/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID19" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID19/maxresdefault.jpg">
+            <a href="https://youtu.be/Y9dj-jikg0E" target="_blank">
+              <img src="https://img.youtube.com/vi/Y9dj-jikg0E/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID20" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID20/maxresdefault.jpg">
+            <a href="https://youtu.be/bv0x410sHbA" target="_blank">
+              <img src="https://img.youtube.com/vi/bv0x410sHbA/maxresdefault.jpg">
             </a>
           </div>
 
@@ -575,62 +531,62 @@
         <div class="youtube-list">
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID21" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID21/maxresdefault.jpg">
+            <a href="https://youtu.be/lnwJn1ZVAmY" target="_blank">
+              <img src="https://img.youtube.com/vi/lnwJn1ZVAmY/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID22" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID22/maxresdefault.jpg">
+            <a href="https://youtu.be/83PmTYmyRRU" target="_blank">
+              <img src="https://img.youtube.com/vi/83PmTYmyRRU/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID23" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID23/maxresdefault.jpg">
+            <a href="https://youtu.be/c7h3SUCikpQ" target="_blank">
+              <img src="https://img.youtube.com/vi/c7h3SUCikpQ/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID24" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID24/maxresdefault.jpg">
+            <a href="https://youtu.be/yOepHFeqMec" target="_blank">
+              <img src="https://img.youtube.com/vi/yOepHFeqMec/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID25" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID25/maxresdefault.jpg">
+            <a href="https://youtu.be/ipr-rGwZRvo" target="_blank">
+              <img src="https://img.youtube.com/vi/ipr-rGwZRvo/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID26" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID26/maxresdefault.jpg">
+            <a href="https://youtu.be/67Qf_K3Ro80" target="_blank">
+              <img src="https://img.youtube.com/vi/67Qf_K3Ro80/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID27" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID27/maxresdefault.jpg">
+            <a href="https://youtu.be/m0iIz81ESnQ" target="_blank">
+              <img src="https://img.youtube.com/vi/m0iIz81ESnQ/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID28" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID28/maxresdefault.jpg">
+            <a href="https://youtu.be/PpMfeSf3XC0" target="_blank">
+              <img src="https://img.youtube.com/vi/PpMfeSf3XC0/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID29" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID29/maxresdefault.jpg">
+            <a href="https://youtu.be/DSvzMYqlEmI" target="_blank">
+              <img src="https://img.youtube.com/vi/DSvzMYqlEmI/maxresdefault.jpg">
             </a>
           </div>
 
           <div class="youtube-box">
-            <a href="https://www.youtube.com/watch?v=영상ID30" target="_blank">
-              <img src="https://img.youtube.com/vi/영상ID30/maxresdefault.jpg">
+            <a href="https://youtu.be/JqNLdgO94E4" target="_blank">
+              <img src="https://img.youtube.com/vi/JqNLdgO94E4/maxresdefault.jpg">
             </a>
           </div>
 
