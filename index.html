@@ -133,35 +133,69 @@
       color: #C93463;
       font-size: 17px;
     }
-    #image-section {
-      margin: 20px 18% 50px 18%;
-      margin-top: 20px;
-    }
+	#image-section {
+	  margin: 20px 18% 50px 18%;
+	  margin-top: 20px;
+	}
 
-    .image-box {
-      width: 100%;
-      margin-bottom: 20px;
-    }
+	.image-box {
+	  width: 100%;
+	  margin-bottom: 0;
+	}
 
-    .image-box img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      cursor: pointer;
-    }
+	.image-box img {
+	  display: block;
+	  width: 100%;
+	  height: auto;
+	  border-radius: 0;
+	  cursor: pointer;
+	}
 
-    .image-hover {
-      display: none !important;
-    }
+	.image-hover {
+	  display: none !important;
+	}
 
-    .image-box:hover .image-normal {
-      display: none !important;
-    }
+	/* 기본 상태 */
+	.image-box:hover .image-normal {
+	  display: none !important;
+	}
 
-    .image-box:hover .image-hover {
-      display: block !important;
-    }
+	.image-box:hover .image-hover {
+	  display: block !important;
+	}
+
+	/* img2에 마우스를 올렸을 때
+	   첫 번째 이미지를 hover 이미지로 변경 */
+	#image-section:has(.image-box:nth-child(2):hover)
+	  .image-box:nth-child(1) .image-normal {
+	  display: none !important;
+	}
+
+	#image-section:has(.image-box:nth-child(2):hover)
+	  .image-box:nth-child(1) .image-hover {
+	  display: block !important;
+	}
+
+	/* img3에 마우스를 올렸을 때
+	   첫 번째 + 두 번째 이미지를 hover 이미지로 변경 */
+	#image-section:has(.image-box:nth-child(3):hover)
+	  .image-box:nth-child(1) .image-normal,
+	#image-section:has(.image-box:nth-child(3):hover)
+	  .image-box:nth-child(2) .image-normal {
+	  display: none !important;
+	}
+
+	#image-section:has(.image-box:nth-child(3):hover)
+	  .image-box:nth-child(1) .image-hover,
+	#image-section:has(.image-box:nth-child(3):hover)
+	  .image-box:nth-child(2) .image-hover {
+	  display: block !important;
+	}
+
+	/* img3의 hover 이미지는 img3-3 사용 */
+	#image-section .image-box:nth-child(3) .image-hover {
+	  /* 기존 img3-2 대신 img3-3을 HTML에서 넣어주세요 */
+	}
 
     #youtube-section {
       margin-top: 30px;
@@ -263,6 +297,7 @@
       width: 50%;
       padding: 0 1px;
       margin-bottom: 6px;
+      transition: transform 0.3s ease;
     }
     .youtube-box a {
       display: block;
@@ -276,7 +311,11 @@
       object-fit: cover;
       border-radius: 10px;
     }
-
+	.youtube-box:hover {
+	  transform: translateY(-3px) scale(1.012);
+	  position: relative;
+	  z-index: 2;
+	}
     .youtube-arrow:disabled {
       opacity: 0.25;
       cursor: default;
@@ -341,11 +380,6 @@
     <p id="youtube-description">
       썸네일은 선화 컨펌작업이 없습니다.
     </p>
-
-
-    <!-- =========================
-         유튜브 슬라이더 1
-         ========================= -->
 
     <div class="youtube-slider">
 
@@ -428,11 +462,6 @@
 
     </div>
 
-
-    <!-- =========================
-         유튜브 슬라이더 2
-         ========================= -->
-
     <div class="youtube-slider">
 
       <button
@@ -513,11 +542,6 @@
       </button>
 
     </div>
-
-
-    <!-- =========================
-         유튜브 슬라이더 3
-         ========================= -->
 
     <div class="youtube-slider">
 
