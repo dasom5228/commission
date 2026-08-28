@@ -133,6 +133,10 @@
       color: #C93463;
       font-size: 17px;
     }
+    #img-main {
+	  margin: 20px 10% 50px 10%;
+	  margin-top: 20px;
+	  }
 	#image-section {
 	  margin: 20px 18% 50px 18%;
 	  margin-top: 20px;
@@ -155,7 +159,6 @@
 	  display: none !important;
 	}
 
-	/* 기본 상태 */
 	.image-box:hover .image-normal {
 	  display: none !important;
 	}
@@ -164,8 +167,6 @@
 	  display: block !important;
 	}
 
-	/* img2에 마우스를 올렸을 때
-	   첫 번째 이미지를 hover 이미지로 변경 */
 	#image-section:has(.image-box:nth-child(2):hover)
 	  .image-box:nth-child(1) .image-normal {
 	  display: none !important;
@@ -176,8 +177,6 @@
 	  display: block !important;
 	}
 
-	/* img3에 마우스를 올렸을 때
-	   첫 번째 + 두 번째 이미지를 hover 이미지로 변경 */
 	#image-section:has(.image-box:nth-child(3):hover)
 	  .image-box:nth-child(1) .image-normal,
 	#image-section:has(.image-box:nth-child(3):hover)
@@ -192,9 +191,7 @@
 	  display: block !important;
 	}
 
-	/* img3의 hover 이미지는 img3-3 사용 */
 	#image-section .image-box:nth-child(3) .image-hover {
-	  /* 기존 img3-2 대신 img3-3을 HTML에서 넣어주세요 */
 	}
 
     #youtube-section {
@@ -357,6 +354,9 @@
     <div id="QnA">
 		<h1>그 외에 궁금하신 점은 문의해주세요!</h1>
 	</div>
+    <div id="img-main">
+		<img class="image-main" src="img-main.png">
+    </div>
      <div id="image-section">
       <div class="image-box">
         <img class="image-normal" src="img1.png">
