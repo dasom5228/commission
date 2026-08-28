@@ -350,25 +350,24 @@
       background-color: #FFE1EA;
       padding: 25px 30px;
       border-radius: 10px;
-
-      display: grid;
-	  grid-template-columns: 1fr 1fr;
-	  column-gap: 30px;
-	  row-gap: 25px;
+      display: flex;
+      flex-direction: column;
+	  gap: 25px;
     }
+	.inquiry-row {
+	  width: 100%;
+	  display: flex;
+	  gap: 30px;
+	}
 	.inquiry-select {
 	  width: 100%;
 	  height: 55px;
 	  padding: 0 15px;
-
 	  border: 2px solid #C93463;
 	  border-radius: 10px;
 	  background-color: #FFFFFF;
-
 	  color: #C93463;
 	  font-size: 17px;
-	  font-weight: 700;
-
 	  cursor: pointer;
 	  outline: none;
 	}
@@ -377,7 +376,8 @@
 	  border-color: #C93463;
 	}
     .inquiry-half {
-      width: 50%;
+	  flex: 1;
+	  min-width: 0;
     }
 
     .inquiry-label {
@@ -468,102 +468,73 @@
 
 	<div id="inquiry">
 
-	  <!-- 1. 방송 닉네임 -->
-	  <div class="inquiry-half">
+	  <div class="inquiry-row">
 
-		<h1 class="inquiry-label">
-		  1. 방송 닉네임
-		</h1>
+		<div class="inquiry-half">
 
-		<input
-		  type="text"
-		  class="inquiry-input"
-		  placeholder="닉네임을 입력해주십시오."
-		>
+		  <h1 class="inquiry-label">
+			1. 방송 닉네임
+		  </h1>
 
-	  </div>
+		  <input
+			type="text"
+			class="inquiry-input"
+			placeholder="닉네임을 입력해주십시오."
+		  >
 
+		</div>
 
-	  <!-- 2. 사용 용도 -->
-	  <div class="inquiry-half">
+		<div class="inquiry-half">
 
-		<h1 class="inquiry-label">
-		  2. 사용 용도
-		</h1>
+		  <h1 class="inquiry-label">
+			2. 사용 용도
+		  </h1>
 
-		<input
-		  type="text"
-		  class="inquiry-input"
-		  placeholder="굿즈 / 선물 / 배포 / 업로드 / 프로필 등"
-		>
+		  <input
+			type="text"
+			class="inquiry-input"
+			placeholder="굿즈 / 선물 / 배포 / 업로드 / 프로필 등"
+		  >
 
-	  </div>
-
-
-	  <!-- 3. 신청 타입 -->
-	  <div class="inquiry-half">
-
-		<h1 class="inquiry-label">
-		  3. 신청 타입
-		</h1>
-
-		<select class="inquiry-select">
-
-		  <option value="" selected disabled>
-			신청 타입을 선택해주십시오.
-		  </option>
-
-		  <option value="A-bust">
-			A타입 흉상
-		  </option>
-
-		  <option value="A-half">
-			A타입 반신
-		  </option>
-
-		  <option value="A-full">
-			A타입 전신
-		  </option>
-
-		  <option value="B-full">
-			B타입 전신
-		  </option>
-
-		  <option value="thumbnail-LD">
-			썸네일 LD
-		  </option>
-
-		  <option value="thumbnail-SD">
-			썸네일 SD
-		  </option>
-
-		</select>
+		</div>
 
 	  </div>
 
 
-	  <!-- 4. 배경 유무 -->
-	  <div class="inquiry-half">
+	  <div class="inquiry-row">
 
-		<h1 class="inquiry-label">
-		  4. 배경 유무
-		</h1>
+		<div class="inquiry-half">
 
-		<select class="inquiry-select">
+		  <h1 class="inquiry-label">
+			3. 신청 타입
+		  </h1>
 
-		  <option value="" selected disabled>
-			배경 유무를 선택해주십시오.
-		  </option>
+		  <select class="inquiry-select">
+			<option value="">신청 타입을 선택해주십시오.</option>
+			<option>A타입 흉상</option>
+			<option>A타입 반신</option>
+			<option>A타입 전신</option>
+			<option>B타입 전신</option>
+			<option>썸네일 LD</option>
+			<option>썸네일 SD</option>
+		  </select>
 
-		  <option value="O">
-			O
-		  </option>
+		</div>
 
-		  <option value="X">
-			X
-		  </option>
 
-		</select>
+		<div class="inquiry-half">
+
+		  <h1 class="inquiry-label">
+			4. 배경 유무
+		  </h1>
+
+		  <select class="inquiry-select">
+			<option value="">선택해주십시오.</option>
+			<option>O</option>
+			<option>X</option>
+		  </select>
+
+		</div>
 
 	  </div>
 
