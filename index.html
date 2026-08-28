@@ -1071,11 +1071,14 @@
 
 		});
 
+	/* 양식 복사 */
 	document.querySelector("#copy").addEventListener("click", function() {
 
 	  const agreement =
 		document.querySelector(".inquiry-agreement");
 
+
+	  /* 공지사항 동의 여부 확인 */
 	  if (!agreement.classList.contains("active")) {
 
 		alert("공지사항에 동의하여 주십시오.");
@@ -1083,21 +1086,33 @@
 		return;
 	  }
 
+
+	  /* 1. 방송 닉네임 */
 	  const nickname =
 		document.querySelectorAll(".inquiry-input")[0].value;
 
+
+	  /* 2. 사용 용도 */
 	  const usage =
 		document.querySelectorAll(".inquiry-input")[1].value;
 
+
+	  /* 3. 신청 타입 */
 	  const type =
 		document.querySelectorAll(".inquiry-select")[0].value;
 
+
+	  /* 4. 배경 유무 */
 	  const background =
 		document.querySelectorAll(".inquiry-select")[1].value;
 
+
+	  /* 5. 전달하고 싶으신 내용 */
 	  const content =
 		document.querySelector(".inquiry-textarea").value;
 
+
+	  /* 6. 추가사항 */
 	  const options = [];
 
 	  document.querySelectorAll(".inquiry-option.active")
@@ -1107,32 +1122,62 @@
 
 		});
 
+
 	  const extra =
 		options.length > 0
 		  ? options.join(", ")
 		  : "";
 
-	const copyText =
-	[
-	  `1. 방송 닉네임 : ${nickname}`,
-	  `2. 사용 용도 : ${usage}`,
-	  `3. 신청 타입 : ${type}`,
-	  `4. 배경 유무 : ${background}`,
-	  `5. 전달하고 싶으신 내용 : ${content}`,
-	  `6. 그 외 추가사항 : ${extra}`
-	].join("\n");
 
-	  navigator.clipboard.writeText(copyText)
-		.then(function() {
+	  /* 최종 복사 내용 */
+	  const copyText =
+	  [
+		`1. 방송 닉네임 : ${nickname}`,
+		`2. 사용 용도 : ${usage}`,
+		`3. 신청 타입 : ${type}`,
+		`4. 배경 유무 : ${background}`,
+		`5. 전달하고 싶으신 내용 : ${content}`,
+		`6. 그 외 추가사항 : ${extra}`
+	  ].join("\n");
+
+
+	  /* 클립보드 복사 */
+	  const tempTextarea =
+		document.createElement("textarea");
+
+	  tempTextarea.value = copyText;
+
+	  tempTextarea.style.position = "fixed";
+	  tempTextarea.style.left = "-9999px";
+	  tempTextarea.style.top = "0";
+
+	  document.body.appendChild(tempTextarea);
+
+	  tempTextarea.focus();
+	  tempTextarea.select();
+
+	  try {
+
+		const success =
+		  document.execCommand("copy");
+
+		if (success) {
 
 		  alert("양식이 복사되었습니다.");
 
-		})
-		.catch(function() {
+		} else {
 
 		  alert("복사에 실패했습니다. 다시 시도해주세요.");
 
-		});
+		}
+
+	  } catch (error) {
+
+		alert("복사에 실패했습니다. 다시 시도해주세요.");
+
+	  }
+
+	  document.body.removeChild(tempTextarea);
 
 	});
 </script>
