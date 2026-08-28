@@ -133,9 +133,12 @@
       color: #C93463;
       font-size: 17px;
     }
-    #img-main {
-	  margin-top: 20px;
-	  }
+	#img-main {
+	  display: block;
+	  max-width: 100%;
+	  height: auto;
+	  margin: 0 auto;
+	}
 	#image-section {
 	  margin: 20px 18% 50px 18%;
 	  margin-top: 20px;
@@ -353,9 +356,7 @@
     <div id="QnA">
 		<h1>그 외에 궁금하신 점은 문의해주세요!</h1>
 	</div>
-    <div id="img-main">
-		<img class="image-main" src="img-main.png">
-    </div>
+	<img id="img-main" src="img-main.png">
      <div id="image-section">
       <div class="image-box">
         <img class="image-normal" src="img1.png">
