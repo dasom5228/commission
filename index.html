@@ -548,113 +548,10 @@
 	  background-color: #FFFFFF;
 	  color: #C93463;
 	}
-
-	/* =========================
-	   오른쪽 고정 메뉴
-	   ========================= */
-
-	#custom-menu {
-	  position: fixed;
-	  top: 25%;
-	  right: 20px;
-	  width: 150px;
-
-	  background-color: #FFFFFF;
-	  border: 3px solid #C93463;
-	  border-radius: 20px;
-
-	  box-shadow:
-		0 0 0 1px rgba(255, 225, 234, 0.95),
-		0 0 3px 2px rgba(255, 225, 234, 0.85),
-		0 0 6px 4px rgba(255, 225, 234, 0.55),
-		0 0 9px 5px rgba(255, 225, 234, 0.25);
-
-	  padding: 12px;
-
-	  z-index: 9999;
-	}
-
-	/* 메뉴 안쪽 분홍색 영역 */
-	#custom-menu-inner {
-	  width: 100%;
-	  background-color: #FFE1EA;
-	  border-radius: 10px;
-	  padding: 8px;
-
-	  display: flex;
-	  flex-direction: column;
-	  gap: 8px;
-	}
-
-	/* 메뉴 버튼 */
-	.custom-menu-button {
-	  width: 100%;
-	  min-height: 45px;
-
-	  border: 2px solid #C93463;
-	  border-radius: 8px;
-
-	  background-color: #FFFFFF;
-	  color: #C93463;
-
-	  font-size: 16px;
-	  font-weight: 900;
-
-	  cursor: pointer;
-
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-
-	  transition:
-		background-color 0.2s ease,
-		color 0.2s ease,
-		transform 0.15s ease;
-	}
-
-	.custom-menu-button:hover {
-	  background-color: #C93463;
-	  color: #FFFFFF;
-	}
-
-	.custom-menu-button:active {
-	  transform: scale(0.97);
-	}
-
   </style>
 </head>
 
 <body>
-
-  <!-- 오른쪽 고정 메뉴 -->
-  <div id="custom-menu">
-
-    <div id="custom-menu-inner">
-
-      <button
-        type="button"
-        class="custom-menu-button"
-        id="menu-top">
-        위로 이동
-      </button>
-
-      <button
-        type="button"
-        class="custom-menu-button"
-        id="menu-notice">
-        안내 사항
-      </button>
-
-      <button
-        type="button"
-        class="custom-menu-button"
-        id="menu-inquiry">
-        문의 양식
-      </button>
-
-    </div>
-
-  </div>
   <main id="main-all">
     <h2 id="notice-title">&nbsp;I&nbsp;안내사항</h2>
     <div id="notice">
@@ -1266,58 +1163,6 @@
 	  document.body.removeChild(tempTextarea);
 
 	});
-
-	  /* =========================
-		 오른쪽 고정 메뉴 이동
-		 ========================= */
-
-	  const menuTop = document.getElementById("menu-top");
-	  const menuNotice = document.getElementById("menu-notice");
-	  const menuInquiry = document.getElementById("menu-inquiry");
-
-	  const mainAll = document.getElementById("main-all");
-	  const inquirySection = document.getElementById("inquiry-section");
-
-
-	  /* 위로 이동 */
-	  menuTop.addEventListener("click", function() {
-
-		window.scrollTo({
-		  top: 0,
-		  behavior: "smooth"
-		});
-
-	  });
-
-
-	  /* 안내 사항 */
-	  menuNotice.addEventListener("click", function() {
-
-		if (mainAll) {
-
-		  mainAll.scrollIntoView({
-			behavior: "smooth",
-			block: "start"
-		  });
-
-		}
-
-	  });
-
-
-	  /* 문의 양식 */
-	  menuInquiry.addEventListener("click", function() {
-
-		if (inquirySection) {
-
-		  inquirySection.scrollIntoView({
-			behavior: "smooth",
-			block: "start"
-		  });
-
-		}
-
-	  });
 </script>
 </body>
 </html>
