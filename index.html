@@ -408,6 +408,97 @@
       border-color: #C93463;
     }
 
+	/* 5번 전달 내용 */
+	.inquiry-full {
+	  width: 100%;
+	}
+
+	.inquiry-textarea {
+	  width: 100%;
+	  height: 200px;
+	  padding: 15px;
+
+	  border: 2px solid #C93463;
+	  border-radius: 10px;
+	  background-color: #FFFFFF;
+
+	  font-size: 17px;
+	  outline: none;
+	  resize: none;
+	  font-family: inherit;
+	}
+
+	.inquiry-textarea::placeholder {
+	  color: #AAAAAA;
+	}
+
+	.inquiry-textarea:focus {
+	  border-color: #C93463;
+	}
+
+
+	/* 6번 추가사항 */
+	.inquiry-option-group {
+	  width: 100%;
+	  margin-top: 5px;
+	  display: flex;
+	  align-items: center;
+	  gap: 15px;
+	}
+
+	.inquiry-option-title {
+	  flex: 0 0 80px;
+	  margin: 0;
+	  color: #C93463;
+	  font-size: 20px;
+	  font-weight: 900;
+	  text-align: left;
+	  border: none;
+	  background: none;
+	}
+
+	.inquiry-options {
+	  flex: 1;
+	  display: flex;
+	  width: 100%;
+	  gap: 10px;
+	  align-items: stretch;
+	}
+
+	.inquiry-option {
+	  flex: 1 1 0;
+	  min-width: 0;
+	  min-height: 45px;
+
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+
+	  padding: 8px 10px;
+
+	  border: 2px solid #C93463;
+	  border-radius: 10px;
+
+	  background-color: #FFFFFF;
+	  color: #C93463;
+
+	  font-size: 16px;
+	  font-weight: 700;
+	  text-align: center;
+
+	  cursor: pointer;
+	  user-select: none;
+
+	  transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
+	}
+
+	/* 클릭해서 활성화된 상태 */
+	.inquiry-option.active {
+	  background-color: #C93463;
+	  color: #FFFFFF;
+	}
   </style>
 </head>
 
@@ -537,6 +628,81 @@
 		</div>
 
 	  </div>
+      <!-- 5번 -->
+      <div class="inquiry-full">
+
+        <h1 class="inquiry-label">
+          5. 전달하고 싶으신 내용
+        </h1>
+
+        <textarea
+          class="inquiry-textarea"
+          placeholder="구도 / 캐릭터 성별 / 배경 / 분위기 / 표정 등"
+        ></textarea>
+
+      </div>
+
+
+      <!-- 6번 -->
+      <div class="inquiry-full">
+
+        <h1 class="inquiry-label">
+          6. 그 외 추가사항 (추가금)
+        </h1>
+
+
+        <!-- 일러스트 -->
+        <div class="inquiry-option-group">
+
+          <h2 class="inquiry-option-title">
+            일러스트
+          </h2>
+
+          <div class="inquiry-options">
+
+            <div class="inquiry-option">
+              3일 이내 마감
+            </div>
+
+            <div class="inquiry-option">
+              일주일 이내 마감
+            </div>
+
+            <div class="inquiry-option">
+              이주일 이내 마감
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- 썸네일 -->
+        <div class="inquiry-option-group">
+
+          <h2 class="inquiry-option-title">
+            썸네일
+          </h2>
+
+          <div class="inquiry-options">
+
+            <div class="inquiry-option">
+              24시간이내 마감
+            </div>
+
+            <div class="inquiry-option">
+              콘티 작업 추가
+            </div>
+
+            <div class="inquiry-option">
+              캐릭터 원본 PNG
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
 
 	</div>
 
@@ -858,6 +1024,16 @@
 
 
     updateSlider();
+
+  });
+  /* 문의 양식 추가금 옵션 클릭 */
+  document.querySelectorAll(".inquiry-option").forEach(function(option) {
+
+    option.addEventListener("click", function() {
+
+      this.classList.toggle("active");
+
+    });
 
   });
 </script>
