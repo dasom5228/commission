@@ -391,11 +391,9 @@
       width: 100%;
       height: 55px;
       padding: 10px 15px;
-
       border: 2px solid #C93463;
       border-radius: 10px;
       background-color: #FFFFFF;
-
       font-size: 17px;
       outline: none;
     }
@@ -408,7 +406,6 @@
       border-color: #C93463;
     }
 
-	/* 5번 전달 내용 */
 	.inquiry-full {
 	  width: 100%;
 	}
@@ -417,11 +414,9 @@
 	  width: 100%;
 	  height: 200px;
 	  padding: 15px;
-
 	  border: 2px solid #C93463;
 	  border-radius: 10px;
 	  background-color: #FFFFFF;
-
 	  font-size: 17px;
 	  outline: none;
 	  resize: none;
@@ -436,8 +431,6 @@
 	  border-color: #C93463;
 	}
 
-
-	/* 6번 추가사항 */
 	.inquiry-option-group {
 	  width: 100%;
 	  margin-top: 5px;
@@ -469,22 +462,79 @@
 	  flex: 1 1 0;
 	  min-width: 0;
 	  min-height: 45px;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  padding: 8px 10px;
+	  border: 2px solid #C93463;
+	  border-radius: 10px;
+	  background-color: #FFFFFF;
+	  color: #C93463;
+	  font-size: 16px;
+	  font-weight: 700;
+	  text-align: center;
+	  cursor: pointer;
+	  user-select: none;
+	  transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
+	}
+
+	.inquiry-option.active {
+	  background-color: #C93463;
+	  color: #FFFFFF;
+	}
+
+	.inquiry-agreement {
+	  width: 100%;
+	  min-height: 75px;
 
 	  display: flex;
 	  align-items: center;
 	  justify-content: center;
+	  margin-top: 20px;
+	  padding: 10px 20px;
+	  border: 2px solid #C93463;
+	  border-radius: 10px;
+	  background-color: #FFFFFF;
+	  color: #C93463;
+	  cursor: pointer;
+	  user-select: none;
+	  transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
+	  letter-spacing: 1.3px;
+	}
 
-	  padding: 8px 10px;
+	.inquiry-agreement h1 {
+	  margin: 0;
+	  font-size: 26px;
+	  font-weight: 900;
+	  text-align: center;
+	}
+
+	.inquiry-agreement.active {
+	  background-color: #C93463;
+	  color: #FFFFFF;
+	  letter-spacing: 1.6px;
+	}
+
+	#copy {
+	  display: block;
+	  width: 120px;
+	  height: 45px;
+
+	  margin: 15px auto 0 auto;
+	  padding: 0;
 
 	  border: 2px solid #C93463;
 	  border-radius: 10px;
 
-	  background-color: #FFFFFF;
-	  color: #C93463;
+	  background-color: #C93463;
+	  color: #FFFFFF;
 
-	  font-size: 16px;
-	  font-weight: 700;
-	  text-align: center;
+	  font-size: 17px;
+	  font-weight: 900;
 
 	  cursor: pointer;
 	  user-select: none;
@@ -494,10 +544,9 @@
 		color 0.2s ease;
 	}
 
-	/* 클릭해서 활성화된 상태 */
-	.inquiry-option.active {
-	  background-color: #C93463;
-	  color: #FFFFFF;
+	#copy:hover {
+	  background-color: #FFFFFF;
+	  color: #C93463;
 	}
   </style>
 </head>
@@ -591,7 +640,6 @@
 
 	  </div>
 
-
 	  <div class="inquiry-row">
 
 		<div class="inquiry-half">
@@ -628,30 +676,21 @@
 		</div>
 
 	  </div>
-      <!-- 5번 -->
       <div class="inquiry-full">
 
         <h1 class="inquiry-label">
           5. 전달하고 싶으신 내용
         </h1>
-
         <textarea
           class="inquiry-textarea"
           placeholder="구도 / 캐릭터 성별 / 배경 / 분위기 / 표정 등"
         ></textarea>
-
       </div>
-
-
-      <!-- 6번 -->
       <div class="inquiry-full">
-
         <h1 class="inquiry-label">
           6. 그 외 추가사항 (추가금)
         </h1>
 
-
-        <!-- 일러스트 -->
         <div class="inquiry-option-group">
 
           <h2 class="inquiry-option-title">
@@ -676,32 +715,29 @@
 
         </div>
 
-
-        <!-- 썸네일 -->
         <div class="inquiry-option-group">
 
           <h2 class="inquiry-option-title">
             썸네일
           </h2>
-
           <div class="inquiry-options">
-
             <div class="inquiry-option">
               24시간이내 마감
             </div>
-
             <div class="inquiry-option">
               콘티 작업 추가
             </div>
-
             <div class="inquiry-option">
               캐릭터 원본 PNG
             </div>
-
           </div>
-
         </div>
-
+        <div class="inquiry-agreement">
+          <h1>공지사항을 확인했으며 이에 동의합니다.</h1>
+        </div>
+		<button id="copy" type="button">
+		  양식 복사
+		</button>
       </div>
 
 	</div>
@@ -962,10 +998,8 @@
   </section>
 <script>
   document.querySelectorAll(".youtube-slider").forEach(function(slider) {
-
     const list = slider.querySelector(".youtube-list");
     const boxes = slider.querySelectorAll(".youtube-box");
-
     const prev =
       slider.querySelector(".youtube-prev");
 
@@ -974,20 +1008,14 @@
 
     let currentPage = 0;
 
-    // 한 화면에 2개
     const itemsPerPage = 2;
 
-    // 최대 10개 기준
     const totalPages =
       Math.ceil(boxes.length / itemsPerPage);
 
 
     function updateSlider() {
 
-      /*
-        한 화면에 2개이므로
-        한 페이지 이동 = 100%
-      */
       const move =
         currentPage * 100;
 
@@ -1026,16 +1054,87 @@
     updateSlider();
 
   });
-  /* 문의 양식 추가금 옵션 클릭 */
-  document.querySelectorAll(".inquiry-option").forEach(function(option) {
 
-    option.addEventListener("click", function() {
+	  document.querySelectorAll(".inquiry-option").forEach(function(option) {
 
-      this.classList.toggle("active");
+		option.addEventListener("click", function() {
 
-    });
+		  this.classList.toggle("active");
 
-  });
+		});
+
+	  });
+
+		document.querySelector(".inquiry-agreement").addEventListener("click", function() {
+
+		  this.classList.toggle("active");
+
+		});
+
+	document.querySelector("#copy").addEventListener("click", function() {
+
+	  const agreement =
+		document.querySelector(".inquiry-agreement");
+
+	  if (!agreement.classList.contains("active")) {
+
+		alert("공지사항에 동의하여 주십시오.");
+
+		return;
+	  }
+
+	  const nickname =
+		document.querySelectorAll(".inquiry-input")[0].value;
+
+	  const usage =
+		document.querySelectorAll(".inquiry-input")[1].value;
+
+	  const type =
+		document.querySelectorAll(".inquiry-select")[0].value;
+
+	  const background =
+		document.querySelectorAll(".inquiry-select")[1].value;
+
+	  const content =
+		document.querySelector(".inquiry-textarea").value;
+
+	  const options = [];
+
+	  document.querySelectorAll(".inquiry-option.active")
+		.forEach(function(option) {
+
+		  options.push(option.textContent.trim());
+
+		});
+
+	  const extra =
+		options.length > 0
+		  ? options.join(", ")
+		  : "";
+
+	const copyText =
+	[
+	  `1. 방송 닉네임 : ${nickname}`,
+	  `2. 사용 용도 : ${usage}`,
+	  `3. 신청 타입 : ${type}`,
+	  `4. 배경 유무 : ${background}`,
+	  `5. 전달하고 싶으신 내용 : ${content}`,
+	  `6. 그 외 추가사항 : ${extra}`
+	].join("\n");
+
+	  navigator.clipboard.writeText(copyText)
+		.then(function() {
+
+		  alert("양식이 복사되었습니다.");
+
+		})
+		.catch(function() {
+
+		  alert("복사에 실패했습니다. 다시 시도해주세요.");
+
+		});
+
+	});
 </script>
 </body>
 </html>
